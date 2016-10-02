@@ -1,13 +1,1 @@
-$(function() {
-    console.log( "ready!" );
-    var Myburger = $('.burger');
-
-	Myburger.on('click', function(e){
-		e.preventDefault();
-		console.log('Myburger is cliqued');
-		$('#sidebar').toggleClass('active');
-	});
-
-	
-});
-	
+function isWideScreen(){var a=parseFloat($("body").css("width"));return a>=690&&a<1290}function isSuperWideScreen(){var a=parseFloat($("body").css("width"));return a>=1290}function resizeContentForSuperWideScreens(){console.log("resizeContentForSuperWideScreens");var a="64px";$(".header").css("height",a),$(".body-container").css("margin-top",a).css("margin-bottom",a)}function resizeContentForWideScreens(){console.log("resizeContentForWideScreens");var a=parseFloat($(".body-container").css("margin-left"));$(".header").css("height",a),$(".body-container").css("margin-top",a).css("margin-bottom",a)}function resizeContentForSmallScreens(){console.log("resizeContentForSmallScreens");var a=$(".header").css("height");$(".body-container").css("margin-top",a).css("margin-bottom",a)}function resizeContent(){console.log("resize to content"),isSuperWideScreen()&&resizeContentForSuperWideScreens(),isWideScreen()?resizeContentForWideScreens():resizeContentForSmallScreens()}var figureHeight=$("figure").css("height");$(document).ready(function(){resizeContent()}),$(window).on("resize",function(){resizeContent(),reload()});
